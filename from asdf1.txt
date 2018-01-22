@@ -1,0 +1,42 @@
+methods
+
+void start
+String kod
+void tab3update
+void tab4update
+void tab5update
+void matryce
+void doswiadczenia
+void obliczSrednie
+void variation
+String wspRegr
+String getModel
+String getModelOdkod
+
+classes
+
+Pomiar
+Plan
+Czynnik
+
+variables (global)
+
+TableView matrycaPlanow;
+    ObservableList<Plan> plany;
+    int liczbaCzynnikow;
+    ObservableList<Czynnik> czynniki;
+    int liczbaPowtorzen=0;
+    TableView wynikiPomiarow;
+    TableView wariancje;
+    ObservableList<Pomiar> pomiary;
+    VBox kodLabels;
+    VBox wspRegrLabels;
+    Label modelLabel, modelOdkodLabel;
+    int n;
+    int N;
+    
+    String czynnWynikOzn="Ra";
+    
+    List<Double> wspolczynnikiRegresji;
+    List<String> kody;
+            
