@@ -5,8 +5,10 @@
  */
 package javafxapplication12;
 
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  *
@@ -16,11 +18,11 @@ public class Czynnik {
     
     // ID, AtomicInteger
     
-    private final SimpleStringProperty nazwa = new SimpleStringProperty("\"nazwa\""); /// default values
-    private final SimpleStringProperty oznaczenie = new SimpleStringProperty("\"oznaczenie\"");
-    private final SimpleDoubleProperty wartoscMin = new SimpleDoubleProperty(0);
-    private final SimpleDoubleProperty wartoscMax = new SimpleDoubleProperty(0);
-    private final SimpleStringProperty jednostka = new SimpleStringProperty("\"jednostka\"");
+    private final StringProperty nazwa = new SimpleStringProperty("\"nazwa\""); /// default values
+    private final StringProperty oznaczenie = new SimpleStringProperty("\"oznaczenie\"");
+    private final DoubleProperty wartoscMin = new SimpleDoubleProperty(0);
+    private final DoubleProperty wartoscMax = new SimpleDoubleProperty(0);
+    private final StringProperty jednostka = new SimpleStringProperty("\"jednostka\"");
     
     /*
     
@@ -50,7 +52,69 @@ public class Czynnik {
     
     */
     
+    /* nazwa */
+    public final String getNazwa(){
+        return nazwa.get();
+    }
     
+    public final void setNazwa(String nazwa){
+        nazwaProperty().set(nazwa);
+    }
+    
+    public final StringProperty nazwaProperty(){
+        return nazwa;
+    }
+    
+    /* oznaczenie */
+    public final String getOznaczenie(){
+        return oznaczenie.get();
+    }
+    
+    public final void setOznaczenie(String oznaczenie){
+        oznaczenieProperty().set(oznaczenie);
+    }
+    
+    public final StringProperty oznaczenieProperty(){
+        return oznaczenie;
+    }
+    
+    /* wartosc minimalna */
+    public final double getWartoscMin(){
+        return wartoscMin.get();
+    }
+    public final void setWartoscMin(double wartoscMin){
+        wartoscMinProperty().set(wartoscMin);
+    }
+    
+    public final DoubleProperty wartoscMinProperty(){
+        return wartoscMin;
+    }
+    
+    /* wartość maksymalna */
+    public final double getWartoscMax(){
+        return wartoscMax.get();
+    }
+    
+    public final void setWartoscMax(double wartoscMax){
+        wartoscMaxProperty().set(wartoscMax);
+    }
+    
+    public final DoubleProperty wartoscMaxProperty(){
+        return wartoscMax;
+    }
+    
+    /* jednostka */
+    public final String getJednostka(){
+        return jednostka.get();
+    }
+    
+    public final void setJednostka(String jednostka){
+        jednostkaProperty().set(jednostka);
+    }
+    
+    public final StringProperty jednostkaProperty(){
+        return jednostka;
+    }
     
     
     
