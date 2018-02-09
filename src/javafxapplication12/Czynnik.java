@@ -5,7 +5,10 @@
  */
 package javafxapplication12;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ReadOnlyIntegerProperty;
+import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.StringProperty;
@@ -18,11 +21,16 @@ public class Czynnik {
     
     // ID, AtomicInteger
     
-    private final StringProperty nazwa = new SimpleStringProperty("\"nazwa\""); /// default values
-    private final StringProperty oznaczenie = new SimpleStringProperty("\"oznaczenie\"");
-    private final DoubleProperty wartoscMin = new SimpleDoubleProperty(0);
-    private final DoubleProperty wartoscMax = new SimpleDoubleProperty(0);
-    private final StringProperty jednostka = new SimpleStringProperty("\"jednostka\"");
+    private final ReadOnlyIntegerWrapper czynnikId =
+            new ReadOnlyIntegerWrapper(this, "czynnikId", czynnikSequence.incrementAndGet());
+    
+    private final StringProperty nazwa = new SimpleStringProperty(this, "nazwa", null); 
+    private final StringProperty oznaczenie = new SimpleStringProperty(this, "oznaczenie", null);
+    private final DoubleProperty wartoscMin = new SimpleDoubleProperty(this, "wartoscMin", 0);
+    private final DoubleProperty wartoscMax = new SimpleDoubleProperty(this, "wartoscMax", 0);
+    private final StringProperty jednostka = new SimpleStringProperty(this, "jednostka", null);
+    
+    private static AtomicInteger czynnikSequence = new AtomicInteger(0);
     
     /*
     
@@ -51,6 +59,12 @@ public class Czynnik {
                 ID
     
     */
+    public final int getCzynnikId() {
+        return czynnikId.get();
+    }
+    public final ReadOnlyIntegerProperty czynnikIdProperty(){
+        return czynnikId.getReadOnlyProperty();
+    }
     
     /* nazwa */
     public final String getNazwa(){
@@ -122,10 +136,12 @@ public class Czynnik {
     
     @Override
     public String toString(){
-        return "(nazwa: " + nazwa.get() +
+        return czynnikId.get() +
+               ", nazwa: " + nazwa.get() +
                ", oznaczenie: " + oznaczenie.get() +
                ", wartosc minimalna: " + wartoscMin.get() +
-               ", wartosc maksymalna: " + wartoscMax.get() + ")";
+               ", wartosc maksymalna: " + wartoscMax.get() +
+               ", jednostka: " + jednostka.get() + ")";
     }
     
 }
