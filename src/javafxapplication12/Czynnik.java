@@ -116,6 +116,16 @@ public class Czynnik {
         return jednostka;
     }
     
+    /*
+        ...
+    */
     
+    @Override
+    public String toString(){
+        return "(nazwa: " + nazwa.get() +
+               ", oznaczenie: " + oznaczenie.get() +
+               ", wartosc minimalna: " + wartoscMin.get() +
+               ", wartosc maksymalna: " + wartoscMax.get() + ")";
+    }
     
 }
