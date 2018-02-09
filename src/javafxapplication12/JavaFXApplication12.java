@@ -54,7 +54,7 @@ public class JavaFXApplication12 extends Application {
         
         
         
-        AtomicInteger asd = new AtomicInteger(0);
+        
         
         
         
