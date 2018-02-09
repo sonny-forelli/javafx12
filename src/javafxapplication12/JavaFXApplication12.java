@@ -5,6 +5,7 @@
  */
 package javafxapplication12;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -53,6 +54,7 @@ public class JavaFXApplication12 extends Application {
         
         
         
+        AtomicInteger asd = new AtomicInteger(0);
         
         
         
